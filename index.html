@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dan Hiaeshutter-Rice, Ph.D.</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1e2e;
+    --slate: #2d3348;
+    --mid: #5a6178;
+    --muted: #8b90a0;
+    --light: #c8cad4;
+    --offwhite: #f4f3f0;
+    --paper: #faf9f7;
+    --white: #ffffff;
+    --accent: #b45a2b;
+    --accent-light: #d4915f;
+    --accent-bg: #fdf6f1;
+    --green: #2a6b4a;
+    --green-bg: #f0f7f3;
+    --section-gap: 7rem;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 17px;
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAVIGATION ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(250, 249, 247, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(26, 30, 46, 0.06);
+    transition: box-shadow 0.3s ease;
+  }
+
+  nav.scrolled {
+    box-shadow: 0 2px 24px rgba(26, 30, 46, 0.08);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-name {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--mid);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.25s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ─── HERO SECTION ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(180, 90, 43, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .hero-text {
+    animation: fadeUp 0.8s ease-out;
+  }
+
+  .hero-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .hero-label::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1.6rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-desc {
+    font-size: 1.12rem;
+    line-height: 1.8;
+    color: var(--mid);
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.8rem;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    background: var(--slate);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 30, 46, 0.2);
+  }
+
+  .btn-outline {
+    border: 1.5px solid var(--light);
+    color: var(--slate);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .hero-photo {
+    position: relative;
+    animation: fadeUp 0.8s ease-out 0.2s both;
+  }
+
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(145deg, var(--offwhite), #e8e6e1);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(26, 30, 46, 0.1);
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .photo-placeholder svg {
+    width: 48px;
+    height: 48px;
+    opacity: 0.4;
+  }
+
+  .hero-photo::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    z-index: -1;
+    opacity: 0.3;
+  }
+
+  /* ─── SECTION COMMONS ─── */
+  section {
+    padding: var(--section-gap) 2rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.015em;
+  }
+
+  .section-subtitle {
+    color: var(--mid);
+    font-size: 1.05rem;
+    max-width: 600px;
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ─── RESEARCH AREAS ─── */
+  #research {
+    background: var(--white);
+  }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .research-card {
+    padding: 2.4rem 2rem;
+    border: 1px solid rgba(26, 30, 46, 0.06);
+    border-radius: 12px;
+    background: var(--paper);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .research-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .research-card:hover::before { transform: scaleX(1); }
+
+  .research-card:hover {
+    box-shadow: 0 12px 40px rgba(26, 30, 46, 0.06);
+    transform: translateY(-4px);
+  }
+
+  .research-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.4rem;
+    font-size: 1.3rem;
+  }
+
+  .research-card:nth-child(1) .research-icon { background: var(--accent-bg); color: var(--accent); }
+  .research-card:nth-child(2) .research-icon { background: #eef0f8; color: var(--slate); }
+  .research-card:nth-child(3) .research-icon { background: var(--green-bg); color: var(--green); }
+
+  .research-card h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .research-card p {
+    color: var(--mid);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ─── PUBLICATIONS ─── */
+  #publications {
+    background: var(--paper);
+  }
+
+  .pub-filters {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pub-filter {
+    padding: 0.5rem 1.2rem;
+    border: 1.5px solid var(--light);
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--mid);
+    cursor: pointer;
+    transition: all 0.25s;
+    background: transparent;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .pub-filter:hover, .pub-filter.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-bg);
+  }
+
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pub-item {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.6rem 2rem;
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid rgba(26, 30, 46, 0.04);
+    transition: all 0.3s ease;
+  }
+
+  .pub-item:hover {
+    box-shadow: 0 4px 20px rgba(26, 30, 46, 0.05);
+    transform: translateX(4px);
+  }
+
+  .pub-year {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 700;
+    padding-top: 0.15rem;
+  }
+
+  .pub-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .pub-info .authors {
+    font-size: 0.85rem;
+    color: var(--mid);
+    margin-bottom: 0.3rem;
+    font-weight: 300;
+  }
+
+  .pub-info .venue {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .pub-link {
+    padding: 0.4rem 1rem;
+    border: 1.5px solid var(--light);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--mid);
+    text-decoration: none;
+    transition: all 0.25s;
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .pub-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ─── ASPECT LAB ─── */
+  #lab {
+    background: var(--ink);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #lab::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(180, 90, 43, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  #lab .section-label { color: var(--accent-light); }
+  #lab .section-label::before { background: var(--accent-light); }
+  #lab .section-title { color: var(--white); }
+  #lab .section-subtitle { color: rgba(255,255,255,0.55); }
+
+  .lab-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .lab-desc {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+  }
+
+  .lab-desc strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .lab-acronym {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .acronym-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem 1.4rem;
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s;
+  }
+
+  .acronym-item:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateX(6px);
+  }
+
+  .acronym-letter {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-light);
+    width: 36px;
+    flex-shrink: 0;
+  }
+
+  .acronym-word {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+  }
+
+  /* ─── TEACHING ─── */
+  #teaching {
+    background: var(--white);
+  }
+
+  .teaching-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .course-card {
+    padding: 2rem 2.2rem;
+    border: 1px solid rgba(26, 30, 46, 0.06);
+    border-radius: 12px;
+    background: var(--paper);
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .course-card:hover {
+    box-shadow: 0 8px 30px rgba(26, 30, 46, 0.06);
+  }
+
+  .course-code {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .course-card h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .course-card p {
+    color: var(--mid);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .course-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.3rem 0.8rem;
+    background: var(--green-bg);
+    color: var(--green);
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 100px;
+  }
+
+  /* ─── CONTACT / FOOTER ─── */
+  #contact {
+    background: var(--paper);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--accent-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  .contact-detail h4 {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-detail p,
+  .contact-detail a {
+    font-size: 0.95rem;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 1.6;
+  }
+
+  .contact-detail a:hover {
+    color: var(--accent);
+  }
+
+  .ext-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .ext-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.4rem;
+    background: var(--white);
+    border: 1px solid rgba(26, 30, 46, 0.05);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.92rem;
+    transition: all 0.3s;
+  }
+
+  .ext-link:hover {
+    transform: translateX(6px);
+    box-shadow: 0 4px 16px rgba(26, 30, 46, 0.05);
+    border-color: var(--accent);
+  }
+
+  .ext-link-arrow {
+    color: var(--muted);
+    transition: all 0.3s;
+    font-size: 1.1rem;
+  }
+
+  .ext-link:hover .ext-link-arrow {
+    color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  footer {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+    border-top: 1px solid rgba(26, 30, 46, 0.06);
+  }
+
+  footer .tagline {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    color: var(--mid);
+    font-size: 0.88rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── MOBILE MENU ─── */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--ink);
+  }
+
+  .menu-toggle svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    html { font-size: 15px; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-photo { max-width: 280px; }
+    .hero h1 { font-size: 2.4rem; }
+
+    .research-grid,
+    .teaching-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .lab-content {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .pub-item {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+
+    .pub-year { font-size: 0.85rem; }
+    .pub-link { justify-self: start; }
+
+    .menu-toggle { display: block; }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--paper);
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+      gap: 1.2rem;
+      border-bottom: 1px solid rgba(26, 30, 46, 0.08);
+      box-shadow: 0 12px 30px rgba(26, 30, 46, 0.08);
+    }
+
+    .nav-links.open { display: flex; }
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2rem; }
+    .section-title { font-size: 1.7rem; }
+    section { padding: 4rem 1.2rem; }
+    .hero { padding: 5rem 1.2rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-name">DHR</a>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#lab">ASPECT Lab</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" class="btn btn-outline" style="padding: 0.5rem 1.2rem; border-radius: 100px;">Download CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-label">Michigan State University</div>
+      <h1>Dan Hiaeshutter&#8209;Rice, Ph.D.</h1>
+      <p class="hero-desc">
+        Assistant Professor of Advertising + Public Relations, studying how platform affordances, social identity, and computational methods reshape political communication and the information ecosystem.
+      </p>
+      <div class="hero-links">
+        <a href="#research" class="btn btn-primary">
+          View Research
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-frame">
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span>Professional headshot</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESEARCH AREAS ─── -->
+<section id="research">
+  <div class="container">
+    <div class="section-label">Research Agenda</div>
+    <h2 class="section-title">Areas of Focus</h2>
+    <p class="section-subtitle">My work sits at the intersection of political communication, platform studies, and computational social science.</p>
+
+    <div class="research-grid">
+      <div class="research-card reveal">
+        <div class="research-icon">⬡</div>
+        <h3>Platforms &amp; Political Communication</h3>
+        <p>Understanding how the technical features and affordances of communication platforms shape the content and strategies of political campaigns across the digital ecosystem.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">◈</div>
+        <h3>Systematic Biases in Information</h3>
+        <p>Examining how algorithms and user behavior influence content exposure, including how engagement with news content skews ideologically and how visual cues affect political processing.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">◉</div>
+        <h3>Identity &amp; Political Expression</h3>
+        <p>Studying how political identity manifests through consumer choices, lifestyle cues, and cultural signals — from podcast preferences to food and clothing as reflections of ideology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PUBLICATIONS ─── -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Selected Work</div>
+    <h2 class="section-title">Publications</h2>
+    <p class="section-subtitle">A selection of peer-reviewed articles, book chapters, and conference papers. Full list available on Google Scholar.</p>
+
+    <div class="pub-filters">
+      <button class="pub-filter active" onclick="filterPubs('all', this)">All</button>
+      <button class="pub-filter" onclick="filterPubs('platforms', this)">Platforms</button>
+      <button class="pub-filter" onclick="filterPubs('bias', this)">Information Bias</button>
+      <button class="pub-filter" onclick="filterPubs('identity', this)">Identity</button>
+      <button class="pub-filter" onclick="filterPubs('health', this)">Health Comm</button>
+    </div>
+
+    <div class="pub-list">
+      <div class="pub-item reveal" data-cat="platforms">
+        <div class="pub-year">2024</div>
+        <div class="pub-info">
+          <h4>Platform Affordances and Campaign Communication Strategies</h4>
+          <div class="authors">Hiaeshutter-Rice, D., et al.</div>
+          <div class="venue">Journal of Communication · [Replace with actual publication]</div>
+        </div>
+        <a href="#" class="pub-link">Paper →</a>
+      </div>
+
+      <div class="pub-item reveal" data-cat="bias">
+        <div class="pub-year">2023</div>
+        <div class="pub-info">
+          <h4>Engagement Asymmetries: Right-Wing Content on Facebook News Pages</h4>
+          <div class="authors">Hiaeshutter-Rice, D., et al.</div>
+          <div class="venue">Political Communication · [Replace with actual publication]</div>
+        </div>
+        <a href="#" class="pub-link">Paper →</a>
+      </div>
+
+      <div class="pub-item reveal" data-cat="identity">
+        <div class="pub-year">2023</div>
+        <div class="pub-info">
+          <h4>Consumer Choices as Political Expression: Podcasts, Food, and Ideology</h4>
+          <div class="authors">Hiaeshutter-Rice, D., et al.</div>
+          <div class="venue">Communication Research · [Replace with actual publication]</div>
+        </div>
+        <a href="#" class="pub-link">Paper →</a>
+      </div>
+
+      <div class="pub-item reveal" data-cat="health">
+        <div class="pub-year">2022</div>
+        <div class="pub-info">
+          <h4>Social Identity and Normative Influence on Sports Gambling Behavior</h4>
+          <div class="authors">Hiaeshutter-Rice, D., et al.</div>
+          <div class="venue">Health Communication · [Replace with actual publication]</div>
+        </div>
+        <a href="#" class="pub-link">Paper →</a>
+      </div>
+
+      <div class="pub-item reveal" data-cat="platforms">
+        <div class="pub-year">2021</div>
+        <div class="pub-info">
+          <h4>The Identity-Driven Information Ecosystem (IDIE) Framework</h4>
+          <div class="authors">Hiaeshutter-Rice, D.</div>
+          <div class="venue">New Media & Society · [Replace with actual publication]</div>
+        </div>
+        <a href="#" class="pub-link">Paper →</a>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2.5rem;">
+      <a href="https://scholar.google.com" class="btn btn-outline" target="_blank">View All on Google Scholar →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ASPECT LAB ─── -->
+<section id="lab">
+  <div class="container">
+    <div class="section-label">Research Lab</div>
+    <h2 class="section-title">The ASPECT Lab</h2>
+    <p class="section-subtitle">Advancing research at the intersection of technology, identity, and communication.</p>
+
+    <div class="lab-content">
+      <div class="lab-desc reveal">
+        <p>The ASPECT Lab at Michigan State University investigates how the information we encounter, engage with, and act upon is shaped by <strong>internal psychological factors</strong> and <strong>external technological structures</strong>.</p>
+        <br>
+        <p>Our work draws on computational methods, large-scale data collection, survey research, and experimental design to understand modern communication ecosystems. We are particularly interested in how <strong>social identities</strong> — political, cultural, and group affiliations — systematically influence the information environments people inhabit.</p>
+        <br>
+        <p>We are always looking for motivated graduate students. If you're interested in political communication, computational methods, or platform studies, <a href="#contact" style="color: var(--accent-light); text-decoration: underline;">get in touch</a>.</p>
+      </div>
+      <div class="lab-acronym reveal">
+        <div class="acronym-item">
+          <span class="acronym-letter">A</span>
+          <span class="acronym-word">Affordances</span>
+        </div>
+        <div class="acronym-item">
+          <span class="acronym-letter">S</span>
+          <span class="acronym-word">Social Identity</span>
+        </div>
+        <div class="acronym-item">
+          <span class="acronym-letter">P</span>
+          <span class="acronym-word">Political Communication</span>
+        </div>
+        <div class="acronym-item">
+          <span class="acronym-letter">E</span>
+          <span class="acronym-word">E-Health</span>
+        </div>
+        <div class="acronym-item">
+          <span class="acronym-letter">C</span>
+          <span class="acronym-word">Communication</span>
+        </div>
+        <div class="acronym-item">
+          <span class="acronym-letter">T</span>
+          <span class="acronym-word">Technologies</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TEACHING ─── -->
+<section id="teaching">
+  <div class="container">
+    <div class="section-label">Teaching</div>
+    <h2 class="section-title">Courses</h2>
+    <p class="section-subtitle">I teach courses focused on digital advertising, analytics, and research methods.</p>
+
+    <div class="teaching-grid">
+      <div class="course-card reveal">
+        <div class="course-code">ADV 362</div>
+        <h3>Digital Advertising Analytics</h3>
+        <p>A hands-on course covering campaign management, digital metrics, platform analytics, and data-driven advertising strategy. Students work with real and simulated datasets to build practical skills.</p>
+        <span class="course-tag">Undergraduate</span>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-code">Graduate Seminar</div>
+        <h3>Quantitative Methods in Communication</h3>
+        <p>Advanced research methods for graduate students, covering computational approaches, large-scale data collection, content analysis, and statistical modeling for communication research.</p>
+        <span class="course-tag">Graduate</span>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-code">Doctoral Lab</div>
+        <h3>ASPECT Lab Research Practicum</h3>
+        <p>Directed research experience for doctoral students working on projects related to political communication, platform studies, and computational social science methods.</p>
+        <span class="course-tag">Ph.D.</span>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-code">[Add Course]</div>
+        <h3>Additional Courses</h3>
+        <p>Placeholder for any additional courses you teach. You can customize the course code, title, and description to match your current teaching portfolio.</p>
+        <span class="course-tag">Customize</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Connect</div>
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-subtitle">I welcome inquiries about research collaborations, prospective graduate students, and speaking opportunities.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-detail">
+            <h4>Office</h4>
+            <p>Department of Advertising + Public Relations<br>Michigan State University<br>East Lansing, MI 48824</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div class="contact-detail">
+            <h4>Email</h4>
+            <a href="mailto:dhrice@msu.edu">dhrice@msu.edu</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ext-links reveal">
+        <a href="https://scholar.google.com" class="ext-link" target="_blank">
+          <span>Google Scholar</span>
+          <span class="ext-link-arrow">→</span>
+        </a>
+        <a href="https://github.com" class="ext-link" target="_blank">
+          <span>GitHub</span>
+          <span class="ext-link-arrow">→</span>
+        </a>
+        <a href="https://comartsci.msu.edu" class="ext-link" target="_blank">
+          <span>MSU Faculty Profile</span>
+          <span class="ext-link-arrow">→</span>
+        </a>
+        <a href="#" class="ext-link" target="_blank">
+          <span>Political Communication Working Group</span>
+          <span class="ext-link-arrow">→</span>
+        </a>
+        <a href="#" class="ext-link" target="_blank">
+          <span>Download CV (PDF)</span>
+          <span class="ext-link-arrow">↓</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="tagline">The AE is silent.</div>
+  <p>© 2026 Dan Hiaeshutter-Rice · Michigan State University</p>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Publication filter
+  function filterPubs(cat, btn) {
+    document.querySelectorAll('.pub-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.pub-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.style.display = 'grid';
+        item.style.animation = 'fadeUp 0.4s ease forwards';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
