@@ -194,14 +194,19 @@
   #lab .section-title { color: var(--white); }
   #lab .section-subtitle { color: rgba(255,255,255,0.55); }
 
+  .lab-header {
+    display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: start; margin-bottom: 2.5rem;
+  }
+  .lab-header .lab-logo { width: 240px; }
+  .lab-header .lab-logo img { width: 100%; height: auto; border-radius: 12px; }
+  .lab-header .section-subtitle { margin-bottom: 0; }
+
   .lab-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
   .lab-desc { font-size: 1.05rem; line-height: 1.85; color: rgba(255,255,255,0.7); font-weight: 300; }
   .lab-desc strong { color: var(--white); font-weight: 600; }
   .lab-desc a { color: var(--accent-light); text-decoration: underline; }
 
-  .lab-right { display: flex; flex-direction: column; gap: 2rem; }
-  .lab-logo { width: 100%; max-width: 320px; margin: 0 auto; }
-  .lab-logo img { width: 100%; height: auto; border-radius: 12px; }
+  .lab-right { display: flex; flex-direction: column; gap: 0.8rem; }
 
   .lab-acronym { display: flex; flex-direction: column; gap: 0.8rem; }
   .acronym-item {
@@ -310,6 +315,8 @@
     .hero h1 { font-size: 2.4rem; }
     .research-grid, .teaching-grid { grid-template-columns: 1fr; }
     .lab-content, .contact-grid { grid-template-columns: 1fr; }
+    .lab-header { grid-template-columns: 1fr; }
+    .lab-header .lab-logo { width: 180px; }
     .contact-grid { gap: 3rem; }
     .pub-item { grid-template-columns: 1fr; gap: 0.6rem; }
     .pub-year { font-size: 0.85rem; }
@@ -590,9 +597,16 @@
 <!-- ─── ASPECT LAB ─── -->
 <section id="lab">
   <div class="container">
-    <div class="section-label">Research Lab</div>
-    <h2 class="section-title">The ASPECT Lab</h2>
-    <p class="section-subtitle">Advancing research at the intersection of technology, identity, and communication.</p>
+    <div class="lab-header">
+      <div>
+        <div class="section-label">Research Lab</div>
+        <h2 class="section-title">The ASPECT Lab</h2>
+        <p class="section-subtitle">Advancing research at the intersection of technology, identity, and communication.</p>
+      </div>
+      <div class="lab-logo reveal">
+        <img src="ASPECT_lab_mid.png" alt="ASPECT Lab logo">
+      </div>
+    </div>
 
     <div class="lab-content">
       <div class="lab-desc reveal">
@@ -603,9 +617,6 @@
         <p>We are always looking for motivated graduate students. If you're interested in political communication, computational methods, or platform studies, <a href="#contact">get in touch</a>.</p>
       </div>
       <div class="lab-right reveal">
-        <div class="lab-logo">
-          <img src="ASPECT_lab_mid.png" alt="ASPECT Lab logo">
-        </div>
         <div class="lab-acronym">
           <div class="acronym-item">
             <span class="acronym-letter">A</span>
