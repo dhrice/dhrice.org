@@ -223,22 +223,32 @@
 
   /* ─── LAB MEMBERS ─── */
   #members { background: var(--white); }
-  .members-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .members-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
   .member-card {
     padding: 1.8rem 1.6rem; border: 1px solid rgba(26, 30, 46, 0.06); border-radius: 12px;
-    background: var(--paper); transition: all 0.3s ease;
+    background: var(--paper); transition: all 0.3s ease; text-align: center;
   }
   .member-card:hover { box-shadow: 0 8px 24px rgba(26, 30, 46, 0.06); transform: translateY(-3px); }
-  .member-name { font-family: 'Libre Baskerville', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .member-photo { width: 110px; height: 110px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.2rem; background: var(--offwhite); }
+  .member-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .member-photo-placeholder {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    color: var(--light);
+  }
+  .member-photo-placeholder svg { width: 40px; height: 40px; }
+  .member-name {
+    font-family: 'Libre Baskerville', serif; font-size: 1.05rem; font-weight: 700;
+    margin-bottom: 0.5rem; display: block;
+  }
+  .member-link { text-decoration: none; color: var(--ink); transition: color 0.25s; }
+  .member-link:hover { color: var(--accent); }
   .member-role {
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
     margin-bottom: 0.6rem; display: inline-block; padding: 0.2rem 0.7rem; border-radius: 100px;
   }
-  .member-role.chair { background: var(--accent-bg); color: var(--accent); }
-  .member-role.committee { background: #eef0f8; color: var(--slate); }
-  .member-role.masters { background: var(--green-bg); color: var(--green); }
-  .member-role.alumni { background: #f0f0f2; color: var(--muted); }
-  .member-desc { font-size: 0.88rem; color: var(--mid); font-weight: 300; line-height: 1.6; }
+  .member-role.phd { background: var(--accent-bg); color: var(--accent); }
+  .member-role.undergrad { background: var(--green-bg); color: var(--green); }
+  .member-desc { font-size: 0.85rem; color: var(--mid); font-weight: 300; line-height: 1.6; }
   .member-status { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; font-style: italic; }
 
   /* ─── TEACHING ─── */
@@ -334,7 +344,7 @@
     .section-title { font-size: 1.7rem; }
     section { padding: 4rem 1.2rem; }
     .hero { padding: 5rem 1.2rem 3rem; }
-    .members-grid { grid-template-columns: 1fr; }
+    .members-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -653,60 +663,56 @@
   <div class="container">
     <div class="section-label">Lab Members</div>
     <h2 class="section-title">ASPECT Lab People</h2>
-    <p class="section-subtitle">Current and former students affiliated with the ASPECT Lab.</p>
+    <p class="section-subtitle">The people behind the research.</p>
 
     <div class="members-grid">
 
       <div class="member-card reveal">
-        <div class="member-role chair">Dissertation Chair</div>
-        <div class="member-name">Layla Chen</div>
-        <div class="member-desc">Ph.D. student, Department of Advertising + Public Relations</div>
-        <div class="member-status">Current</div>
+        <div class="member-photo">
+          <div class="member-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <!-- Replace placeholder above with: <img src="layla-chen.png" alt="Layla Chen"> -->
+        </div>
+        <div class="member-role phd">Ph.D. Student</div>
+        <a href="#" class="member-name member-link">Layla Chen</a>
+        <div class="member-desc">Ph.D. student, Department of Advertising + Public Relations. Research interests in political communication and computational methods.</div>
       </div>
 
       <div class="member-card reveal">
-        <div class="member-role committee">Dissertation Committee</div>
-        <div class="member-name">Taewoo Kang</div>
-        <div class="member-desc">Ph.D. candidate, anticipated 2026</div>
-        <div class="member-status">Current</div>
+        <div class="member-photo">
+          <div class="member-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <!-- Replace placeholder above with: <img src="lael-falde.png" alt="Lael Falde"> -->
+        </div>
+        <div class="member-role undergrad">Undergraduate Researcher</div>
+        <a href="#" class="member-name member-link">Lael Falde</a>
+        <div class="member-desc">Undergraduate research assistant, ASPECT Lab.</div>
       </div>
 
       <div class="member-card reveal">
-        <div class="member-role committee">Dissertation Committee</div>
-        <div class="member-name">Nan Zhang</div>
-        <div class="member-desc">Ph.D. candidate, anticipated 2026</div>
-        <div class="member-status">Current</div>
+        <div class="member-photo">
+          <div class="member-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <!-- Replace placeholder above with: <img src="sam-radke.png" alt="Sam Radke"> -->
+        </div>
+        <div class="member-role undergrad">Undergraduate Researcher</div>
+        <a href="#" class="member-name member-link">Sam Radke</a>
+        <div class="member-desc">Undergraduate research assistant, ASPECT Lab.</div>
       </div>
 
       <div class="member-card reveal">
-        <div class="member-role masters">Master's Advising</div>
-        <div class="member-name">Caroline Kubek</div>
-        <div class="member-desc">M.A. student, completed 2025</div>
-        <div class="member-status">Alumni</div>
-      </div>
-
-      <div class="member-card reveal">
-        <div class="member-role alumni">Alumni</div>
-        <div class="member-name">Ava Francesca Battocchio</div>
-        <div class="member-desc">Ph.D., dissertation committee member, completed 2025</div>
-      </div>
-
-      <div class="member-card reveal">
-        <div class="member-role alumni">Alumni</div>
-        <div class="member-name">Suhwoo Ahn</div>
-        <div class="member-desc">Ph.D., dissertation committee member, completed 2024</div>
-      </div>
-
-      <div class="member-card reveal">
-        <div class="member-role alumni">Alumni</div>
-        <div class="member-name">Sevgi Baykaldi</div>
-        <div class="member-desc">Ph.D., dissertation committee member, completed 2023</div>
-      </div>
-
-      <div class="member-card reveal">
-        <div class="member-role alumni">Alumni</div>
-        <div class="member-name">Po-Yueh Hsu</div>
-        <div class="member-desc">M.A., master's advising, completed 2022</div>
+        <div class="member-photo">
+          <div class="member-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <!-- Replace placeholder above with: <img src="kaylee-imo.png" alt="Kaylee Imo"> -->
+        </div>
+        <div class="member-role undergrad">Undergraduate Researcher</div>
+        <a href="#" class="member-name member-link">Kaylee Imo</a>
+        <div class="member-desc">Undergraduate research assistant, ASPECT Lab.</div>
       </div>
 
     </div>
