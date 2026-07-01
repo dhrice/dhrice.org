@@ -3,890 +3,460 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dan Hiaeshutter-Rice, Ph.D.</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Dan Hiaeshutter-Rice — Associate Professor, Michigan State University</title>
+<meta name="description" content="Dan Hiaeshutter-Rice is an Associate Professor of Advertising + Public Relations at Michigan State University, studying platform affordances, social identity, and computational methods in political communication and the information ecosystem.">
+<meta name="author" content="Dan Hiaeshutter-Rice">
+<link rel="canonical" href="https://dhrice.org/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Dan Hiaeshutter-Rice — Associate Professor, Michigan State University">
+<meta property="og:description" content="Studying platform affordances, social identity, and computational methods in political communication and the information ecosystem.">
+<meta property="og:url" content="https://dhrice.org/">
+<meta property="og:image" content="https://dhrice.org/headshot.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#211d18">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23211d18'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='56' font-weight='600' fill='%238a2f2f' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #1a1e2e;
-    --slate: #2d3348;
-    --mid: #5a6178;
-    --muted: #8b90a0;
-    --light: #c8cad4;
-    --offwhite: #f4f3f0;
-    --paper: #faf9f7;
-    --white: #ffffff;
-    --accent: #b45a2b;
-    --accent-light: #d4915f;
-    --accent-bg: #fdf6f1;
-    --green: #2a6b4a;
-    --green-bg: #f0f7f3;
-    --teal: #1a7a7a;
-    --teal-bg: #eef7f7;
-    --section-gap: 7rem;
+  :root{
+    --ink:#211d18; --ink-2:#3c352d; --soft:#5c5348; --muted:#8f857710; --muted:#8c8375;
+    --faint:#b6ad9e; --line:#e6dfd2; --line-soft:#efe9dd;
+    --bg:#f8f5ee; --bg-2:#f2ede2; --card:#fffdf9; --white:#fff;
+    --wine:#8a2f2f; --wine-deep:#6f2323; --wine-bg:#f3e5e2;
+    --gold:#a9791f; --gold-bg:#f4ecd6;
+    --teal:#2c6b6b; --teal-bg:#e0eeed;
+    --green:#4c7a4a; --green-bg:#e7f0e2;
   }
+  *{margin:0;padding:0;box-sizing:border-box}
+  ::selection{background:var(--wine);color:#fff}
+  html{scroll-behavior:smooth;font-size:17px;-webkit-text-size-adjust:100%}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  .serif{font-family:'Newsreader',Georgia,serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 2.2rem}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* NAV */
+  nav{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(248,245,238,.82);backdrop-filter:blur(14px) saturate(1.1);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+  nav.scrolled{border-color:var(--line);background:rgba(248,245,238,.94)}
+  .nav-inner{max-width:1120px;margin:0 auto;padding:0 2.2rem;height:70px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-family:'Newsreader',serif;font-weight:600;font-size:1.18rem;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+  .brand span{color:var(--wine)}
+  .nav-links{display:flex;align-items:center;gap:1.9rem;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--soft);font-size:.86rem;font-weight:500;transition:color .2s;position:relative}
+  .nav-links a:not(.nav-cv)::after{content:'';position:absolute;left:0;bottom:-5px;height:2px;width:0;background:var(--wine);transition:width .28s}
+  .nav-links a:not(.nav-cv):hover{color:var(--ink)}
+  .nav-links a:not(.nav-cv):hover::after{width:100%}
+  .nav-cv{padding:.55rem 1.15rem;border:1.5px solid var(--wine);border-radius:100px;color:var(--wine)!important;font-weight:600;font-size:.82rem;transition:all .25s}
+  .nav-cv:hover{background:var(--wine);color:#fff!important}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--ink);padding:6px}
+  .menu-toggle svg{width:24px;height:24px}
 
-  html { scroll-behavior: smooth; font-size: 17px; }
+  /* HERO */
+  .hero{padding:9rem 0 5rem;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-15%;right:-8%;width:52vw;height:52vw;max-width:660px;max-height:660px;background:radial-gradient(circle,rgba(138,47,47,.07),transparent 68%);pointer-events:none}
+  .hero-inner{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:4rem;align-items:center}
+  .pill{display:inline-flex;align-items:center;gap:.55rem;background:var(--wine-bg);color:var(--wine);font-size:.76rem;font-weight:600;letter-spacing:.02em;padding:.42rem .95rem;border-radius:100px;margin-bottom:1.7rem}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--wine)}
+  .hero h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(2.9rem,6.5vw,5rem);line-height:1.02;letter-spacing:-.025em;color:var(--ink);margin-bottom:1.2rem}
+  .hero h1 em{font-style:italic;color:var(--wine-deep)}
+  .hero-role{font-size:1.16rem;color:var(--ink-2);font-weight:600;margin-bottom:1.1rem;max-width:32ch}
+  .hero-desc{font-size:1.06rem;color:var(--soft);max-width:46ch;margin-bottom:2.3rem}
+  .cta{display:flex;gap:.85rem;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.82rem 1.6rem;border-radius:100px;font-size:.9rem;font-weight:600;text-decoration:none;transition:all .26s;cursor:pointer}
+  .btn svg{width:15px;height:15px}
+  .btn-primary{background:var(--wine);color:#fff}
+  .btn-primary:hover{background:var(--wine-deep);transform:translateY(-2px);box-shadow:0 10px 26px rgba(138,47,47,.24)}
+  .btn-ghost{background:var(--card);border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{transform:translateY(-2px);border-color:var(--wine);color:var(--wine)}
+  .hero-photo{position:relative}
+  .hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 12%;border-radius:20px;box-shadow:0 26px 60px rgba(33,29,24,.16)}
+  .hero-photo::after{content:'';position:absolute;inset:16px -14px -14px 20px;border:1.5px solid var(--wine);border-radius:20px;z-index:-1;opacity:.35}
 
-  body {
-    font-family: 'Outfit', sans-serif;
-    color: var(--ink);
-    background: var(--paper);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
+  /* SECTIONS */
+  section.block{padding:6.5rem 0}
+  .kick{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);margin-bottom:.7rem}
+  .sec-title{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.06;letter-spacing:-.02em}
+  .sec-lede{color:var(--soft);font-size:1.06rem;max-width:62ch;margin-top:1rem}
+  .sec-head{margin-bottom:3rem}
 
-  /* ─── NAVIGATION ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250, 249, 247, 0.92);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(26, 30, 46, 0.06);
-    transition: box-shadow 0.3s ease;
-  }
-  nav.scrolled { box-shadow: 0 2px 24px rgba(26, 30, 46, 0.08); }
+  /* RESEARCH */
+  .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem}
+  .rcard{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:2.2rem 2.1rem;transition:transform .28s,box-shadow .28s}
+  .rcard:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(33,29,24,.08)}
+  .ric{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;margin-bottom:1.3rem;color:var(--wine);background:var(--wine-bg)}
+  .rcard:nth-child(2) .ric{color:var(--teal);background:var(--teal-bg)}
+  .rcard:nth-child(3) .ric{color:var(--gold);background:var(--gold-bg)}
+  .rcard:nth-child(4) .ric{color:var(--green);background:var(--green-bg)}
+  .ric svg{width:25px;height:25px}
+  .rcard h3{font-family:'Newsreader',serif;font-weight:600;font-size:1.35rem;line-height:1.2;margin-bottom:.6rem}
+  .rcard p{color:var(--soft);font-size:.95rem}
 
-  .nav-inner {
-    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between; height: 64px;
-  }
-  .nav-name {
-    font-family: 'Libre Baskerville', serif; font-size: 1.05rem; font-weight: 700;
-    color: var(--ink); text-decoration: none; letter-spacing: -0.01em;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-  .nav-links a {
-    text-decoration: none; color: var(--mid); font-size: 0.85rem; font-weight: 500;
-    letter-spacing: 0.03em; text-transform: uppercase; transition: color 0.25s; position: relative;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
-    background: var(--accent); transition: width 0.3s ease;
-  }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-links a:hover::after { width: 100%; }
+  /* PUBLICATIONS */
+  #publications{background:var(--bg-2)}
+  .pub-filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.4rem}
+  .pub-filter{padding:.5rem 1.1rem;border:1px solid var(--line);border-radius:100px;background:var(--card);font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .22s}
+  .pub-filter:hover{border-color:var(--wine);color:var(--wine)}
+  .pub-filter.active{background:var(--wine);border-color:var(--wine);color:#fff}
+  .pub-list{border-top:1px solid var(--line)}
+  .pub-item{display:grid;grid-template-columns:66px 1fr;gap:1.5rem;padding:1.5rem .6rem;border-bottom:1px solid var(--line-soft);transition:background .24s,padding-left .24s;align-items:start}
+  .pub-item:hover{background:var(--card);padding-left:1.1rem}
+  .pub-year{font-family:'Newsreader',serif;font-style:italic;font-weight:500;font-size:1.15rem;color:var(--wine);padding-top:.1rem}
+  .pub-title{font-family:'Newsreader',serif;font-weight:600;font-size:1.16rem;line-height:1.32;margin-bottom:.3rem}
+  .pub-authors{font-size:.88rem;color:var(--soft)}
+  .pub-authors b{color:var(--ink);font-weight:600}
+  .pub-venue{font-style:italic;font-size:.86rem;color:var(--muted);margin-top:.12rem}
+  .pub-more{margin-top:2.4rem}
 
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding: 6rem 2rem 4rem; position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(180, 90, 43, 0.04) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-inner {
-    max-width: 1200px; margin: 0 auto; width: 100%;
-    display: grid; grid-template-columns: 1fr 360px; gap: 5rem; align-items: center;
-  }
-  .hero-text { animation: fadeUp 0.8s ease-out; }
-  .hero-label {
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;
-  }
-  .hero-label::before { content: ''; width: 24px; height: 2px; background: var(--accent); }
-  .hero h1 {
-    font-family: 'Libre Baskerville', serif; font-size: 3.2rem; font-weight: 700;
-    line-height: 1.15; color: var(--ink); margin-bottom: 1.6rem; letter-spacing: -0.02em;
-  }
-  .hero-desc {
-    font-size: 1.12rem; line-height: 1.8; color: var(--mid); max-width: 540px;
-    margin-bottom: 2.5rem; font-weight: 300;
-  }
-  .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  /* LAB BAND */
+  #lab{background:var(--ink);color:var(--bg)}
+  #lab .kick{color:var(--gold)}
+  #lab::before{content:'';position:absolute}
+  .lab-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:4rem;align-items:center}
+  .lab-logo-link{display:inline-block;margin-bottom:1.8rem;transition:transform .28s}
+  .lab-logo-link:hover{transform:translateY(-3px)}
+  .lab-logo{width:190px;border-radius:14px;display:block}
+  .lab-title{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(2.1rem,4.4vw,3.2rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.3rem}
+  .lab-copy{color:rgba(248,245,238,.74);font-size:1.04rem;max-width:52ch}
+  .lab-copy p+p{margin-top:1rem}
+  .lab-copy strong{color:var(--bg);font-weight:600}
+  .lab-copy a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(169,121,31,.45)}
+  .lab-visit{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.8rem;font-weight:600;font-size:.92rem;color:var(--bg);text-decoration:none}
+  .lab-visit .arrow{transition:transform .25s}
+  .lab-visit:hover .arrow{transform:translateX(5px)}
+  .acr{display:flex;flex-direction:column;gap:.55rem}
+  .acr-item{display:flex;align-items:center;gap:1.1rem;padding:.85rem 1.2rem;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);transition:all .28s}
+  .acr-item:hover{background:rgba(255,255,255,.1);transform:translateX(6px)}
+  .acr-l{font-family:'Newsreader',serif;font-weight:600;font-size:1.4rem;color:var(--gold);width:22px}
+  .acr-w{font-size:.9rem;color:rgba(248,245,238,.8)}
 
-  .btn {
-    display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.8rem;
-    border-radius: 6px; font-size: 0.88rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; letter-spacing: 0.02em;
-  }
-  .btn-primary { background: var(--ink); color: var(--white); }
-  .btn-primary:hover { background: var(--slate); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26, 30, 46, 0.2); }
-  .btn-outline { border: 1.5px solid var(--light); color: var(--slate); background: transparent; }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  /* STUDENTS */
+  .stu-split{display:grid;grid-template-columns:1fr 1fr;gap:3.4rem}
+  .stu-group-label{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:.8rem;margin-bottom:1.4rem;border-bottom:2px solid var(--line)}
+  .stu-list{display:flex;flex-direction:column;gap:.8rem}
+  .stu-item{display:flex;align-items:center;gap:1.1rem;padding:1rem 1.2rem;border-radius:14px;background:var(--card);border:1px solid var(--line-soft);transition:all .28s}
+  .stu-item:hover{box-shadow:0 10px 28px rgba(33,29,24,.07);transform:translateX(5px);border-color:var(--line)}
+  .avatar{width:48px;height:48px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-family:'Newsreader',serif;font-weight:600;font-size:1.05rem;color:var(--wine);background:var(--wine-bg)}
+  .stu-item:nth-child(even) .avatar{color:var(--teal);background:var(--teal-bg)}
+  .stu-name{font-family:'Newsreader',serif;font-weight:600;font-size:1.08rem;text-decoration:none;color:var(--ink)}
+  a.stu-name:hover{color:var(--wine)}
+  .stu-meta{font-size:.85rem;color:var(--muted)}
 
-  .hero-photo { position: relative; animation: fadeUp 0.8s ease-out 0.2s both; }
-  .photo-frame {
-    width: 100%; aspect-ratio: 3/4; border-radius: 12px; overflow: hidden; position: relative;
-    box-shadow: 0 20px 60px rgba(26, 30, 46, 0.12);
-  }
-  .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-  .hero-photo::after {
-    content: ''; position: absolute; top: 20px; left: 20px; right: -10px; bottom: -10px;
-    border: 2px solid var(--accent); border-radius: 12px; z-index: -1; opacity: 0.3;
-  }
+  /* TEACHING */
+  #teaching{background:var(--bg-2)}
+  .course-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem}
+  .course{background:var(--card);border:1px solid var(--line-soft);border-radius:18px;padding:2rem 2.1rem;transition:all .28s;position:relative;overflow:hidden}
+  .course::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--wine);transform:scaleY(0);transform-origin:top;transition:transform .3s}
+  .course:hover{box-shadow:0 12px 32px rgba(33,29,24,.07)}
+  .course:hover::before{transform:scaleY(1)}
+  .course-code{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--wine);margin-bottom:.7rem}
+  .course h3{font-family:'Newsreader',serif;font-weight:600;font-size:1.28rem;margin-bottom:.6rem}
+  .course p{font-size:.93rem;color:var(--soft)}
+  .course-tag{display:inline-block;margin-top:1rem;padding:.28rem .85rem;border-radius:100px;font-size:.72rem;font-weight:600;letter-spacing:.02em}
+  .t-ug{background:var(--wine-bg);color:var(--wine-deep)}
+  .t-grad{background:var(--green-bg);color:var(--green)}
+  .t-ws{background:var(--teal-bg);color:var(--teal)}
 
-  /* ─── SECTION COMMONS ─── */
-  section { padding: var(--section-gap) 2rem; }
-  .container { max-width: 1200px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem;
-  }
-  .section-label::before { content: ''; width: 20px; height: 2px; background: var(--accent); }
-  .section-title {
-    font-family: 'Libre Baskerville', serif; font-size: 2.2rem; font-weight: 700;
-    line-height: 1.25; margin-bottom: 1.2rem; letter-spacing: -0.015em;
-  }
-  .section-subtitle {
-    color: var(--mid); font-size: 1.05rem; max-width: 600px; font-weight: 300;
-    line-height: 1.7; margin-bottom: 3rem;
-  }
+  /* RECENT */
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+  .news{background:var(--card);border:1px solid var(--line-soft);border-radius:18px;padding:1.9rem;transition:all .28s}
+  .news:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(33,29,24,.08)}
+  .news-date{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--wine);margin-bottom:.8rem}
+  .news h3{font-family:'Newsreader',serif;font-weight:600;font-size:1.18rem;line-height:1.25;margin-bottom:.5rem}
+  .news p{font-size:.9rem;color:var(--soft)}
 
-  /* ─── RESEARCH AREAS ─── */
-  #research { background: var(--white); }
-  .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1rem; }
-  .research-card {
-    padding: 2.4rem 2rem; border: 1px solid rgba(26, 30, 46, 0.06); border-radius: 12px;
-    background: var(--paper); transition: all 0.4s ease; position: relative; overflow: hidden;
-  }
-  .research-card::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-    background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
-  }
-  .research-card:hover::before { transform: scaleX(1); }
-  .research-card:hover { box-shadow: 0 12px 40px rgba(26, 30, 46, 0.06); transform: translateY(-4px); }
-  .research-icon {
-    width: 44px; height: 44px; border-radius: 10px; display: flex;
-    align-items: center; justify-content: center; margin-bottom: 1.4rem; font-size: 1.3rem;
-  }
-  .research-card:nth-child(1) .research-icon { background: var(--accent-bg); color: var(--accent); }
-  .research-card:nth-child(2) .research-icon { background: #eef0f8; color: var(--slate); }
-  .research-card:nth-child(3) .research-icon { background: var(--green-bg); color: var(--green); }
-  .research-card:nth-child(4) .research-icon { background: var(--teal-bg); color: var(--teal); }
-  .research-card h3 { font-family: 'Libre Baskerville', serif; font-size: 1.15rem; margin-bottom: 0.9rem; line-height: 1.35; }
-  .research-card p { color: var(--mid); font-size: 0.92rem; line-height: 1.7; font-weight: 300; }
+  /* CONTACT */
+  #contact{padding:6.5rem 0}
+  .contact-card{background:var(--ink);color:var(--bg);border-radius:28px;padding:3.4rem;display:grid;grid-template-columns:1fr .9fr;gap:3.5rem;align-items:start}
+  .contact-card .kick{color:var(--gold)}
+  .contact-card h2{font-family:'Newsreader',serif;font-weight:500;font-size:2.3rem;letter-spacing:-.02em;margin-bottom:.7rem;color:var(--bg)}
+  .contact-card .lede2{color:rgba(248,245,238,.68);max-width:44ch;margin-bottom:2rem}
+  .contact-row{display:flex;gap:1rem;align-items:start;margin-bottom:1.4rem}
+  .contact-ic{width:40px;height:40px;border-radius:11px;flex-shrink:0;display:grid;place-items:center;color:var(--gold);background:rgba(169,121,31,.16)}
+  .contact-ic svg{width:18px;height:18px}
+  .contact-row h4{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:.25rem}
+  .contact-row p,.contact-row a{font-size:.95rem;color:var(--bg);text-decoration:none;line-height:1.55}
+  .contact-row a:hover{color:var(--gold)}
+  .links{display:flex;flex-direction:column;gap:.65rem}
+  .link{display:flex;align-items:center;justify-content:space-between;padding:.95rem 1.3rem;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);text-decoration:none;color:var(--bg);font-weight:500;font-size:.92rem;transition:all .26s}
+  .link:hover{background:rgba(255,255,255,.1);transform:translateX(5px);border-color:rgba(169,121,31,.5)}
+  .link .arrow{color:var(--faint);transition:transform .25s,color .25s}
+  .link:hover .arrow{color:var(--gold);transform:translateX(4px)}
 
-  /* ─── PUBLICATIONS ─── */
-  #publications { background: var(--paper); }
-  .pub-filters { display: flex; gap: 0.6rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-  .pub-filter {
-    padding: 0.5rem 1.2rem; border: 1.5px solid var(--light); border-radius: 100px;
-    font-size: 0.82rem; font-weight: 500; color: var(--mid); cursor: pointer;
-    transition: all 0.25s; background: transparent; font-family: 'Outfit', sans-serif;
-  }
-  .pub-filter:hover, .pub-filter.active { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+  /* FOOTER */
+  footer{text-align:center;padding:2.6rem 2rem 3rem;color:var(--muted);border-top:1px solid var(--line)}
+  footer .fnote{font-family:'Newsreader',serif;font-style:italic;font-size:1.05rem;color:var(--soft);margin-bottom:.4rem}
+  footer .fmeta{font-size:.8rem}
 
-  .pub-list { display: flex; flex-direction: column; gap: 1rem; }
-  .pub-item {
-    display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start;
-    padding: 1.6rem 2rem; background: var(--white); border-radius: 10px;
-    border: 1px solid rgba(26, 30, 46, 0.04); transition: all 0.3s ease;
-  }
-  .pub-item:hover { box-shadow: 0 4px 20px rgba(26, 30, 46, 0.05); transform: translateX(4px); }
-  .pub-year {
-    font-family: 'Libre Baskerville', serif; font-size: 1rem; color: var(--accent);
-    font-weight: 700; padding-top: 0.15rem;
-  }
-  .pub-info h4 { font-size: 1rem; font-weight: 600; line-height: 1.5; margin-bottom: 0.4rem; color: var(--ink); }
-  .pub-info .authors { font-size: 0.85rem; color: var(--mid); margin-bottom: 0.3rem; font-weight: 300; }
-  .pub-info .venue { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
 
-  /* ─── ASPECT LAB ─── */
-  #lab { background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
-  #lab::before {
-    content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(180, 90, 43, 0.15) 0%, transparent 70%); pointer-events: none;
+  @media(max-width:940px){
+    html{font-size:16px}
+    .nav-links{position:fixed;inset:70px 0 auto 0;flex-direction:column;align-items:flex-start;gap:1.3rem;background:var(--bg);padding:1.8rem 2.2rem 2.2rem;border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(33,29,24,.08);transform:translateY(-135%);transition:transform .35s}
+    .nav-links.open{transform:none}
+    .menu-toggle{display:block}
+    .hero-inner{grid-template-columns:1fr;gap:3rem}
+    .hero-photo{max-width:300px}.hero-photo::after{display:none}
+    .rgrid,.lab-grid,.stu-split,.course-grid,.news-grid,.contact-card{grid-template-columns:1fr;gap:1.6rem}
+    .lab-grid,.stu-split,.contact-card{gap:2.6rem}
+    .news-grid{gap:1.2rem}
   }
-  #lab .section-label { color: var(--accent-light); }
-  #lab .section-label::before { background: var(--accent-light); }
-  #lab .section-title { color: var(--white); }
-  #lab .section-subtitle { color: rgba(255,255,255,0.55); }
-
-  .lab-header {
-    display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: start; margin-bottom: 2.5rem;
+  @media(max-width:560px){
+    .wrap{padding:0 1.4rem}.nav-inner{padding:0 1.4rem}
+    section.block,#contact{padding:4.5rem 0}
+    .pub-item{grid-template-columns:1fr;gap:.4rem}
+    .pub-item:hover{padding-left:.6rem}
+    .contact-card{padding:2.2rem 1.6rem}
   }
-  .lab-header .lab-logo { width: 240px; }
-  .lab-header .lab-logo img { width: 100%; height: auto; border-radius: 12px; }
-  .lab-header .section-subtitle { margin-bottom: 0; }
-
-  .lab-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-  .lab-desc { font-size: 1.05rem; line-height: 1.85; color: rgba(255,255,255,0.7); font-weight: 300; }
-  .lab-desc strong { color: var(--white); font-weight: 600; }
-  .lab-desc a { color: var(--accent-light); text-decoration: underline; }
-
-  .lab-right { display: flex; flex-direction: column; gap: 0.8rem; }
-
-  .lab-acronym { display: flex; flex-direction: column; gap: 0.8rem; }
-  .acronym-item {
-    display: flex; align-items: center; gap: 1.2rem; padding: 0.8rem 1.2rem;
-    background: rgba(255,255,255,0.04); border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.06); transition: all 0.3s;
-  }
-  .acronym-item:hover { background: rgba(255,255,255,0.08); transform: translateX(6px); }
-  .acronym-letter {
-    font-family: 'Libre Baskerville', serif; font-size: 1.3rem; font-weight: 700;
-    color: var(--accent-light); width: 28px; flex-shrink: 0;
-  }
-  .acronym-word { font-size: 0.9rem; color: rgba(255,255,255,0.7); font-weight: 400; }
-
-  /* ─── LAB MEMBERS ─── */
-  #members { background: var(--white); }
-  .students-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-  .students-group-label {
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 1.2rem; padding-bottom: 0.6rem;
-    border-bottom: 2px solid rgba(26, 30, 46, 0.06);
-  }
-  .student-list { display: flex; flex-direction: column; gap: 1rem; }
-  .student-item {
-    display: flex; gap: 1.2rem; align-items: center; padding: 1.2rem 1.4rem;
-    background: var(--paper); border-radius: 10px; border: 1px solid rgba(26, 30, 46, 0.04);
-    transition: all 0.3s ease;
-  }
-  .student-item:hover { box-shadow: 0 4px 16px rgba(26, 30, 46, 0.05); transform: translateX(4px); }
-  .student-photo { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--offwhite); }
-  .student-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .student-photo-placeholder {
-    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--light);
-  }
-  .student-photo-placeholder svg { width: 22px; height: 22px; }
-  .student-info { flex: 1; }
-  .student-name { font-family: 'Libre Baskerville', serif; font-size: 0.98rem; font-weight: 700; margin-bottom: 0.2rem; }
-  .student-link { text-decoration: none; color: var(--ink); transition: color 0.25s; }
-  .student-link:hover { color: var(--accent); }
-  .student-role-tag {
-    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-    display: inline-block; padding: 0.15rem 0.6rem; border-radius: 100px; margin-bottom: 0.25rem;
-  }
-  .current-tag { background: var(--accent-bg); color: var(--accent); }
-  .committee-tag { background: #eef0f8; color: var(--slate); }
-  .student-desc { font-size: 0.82rem; color: var(--mid); font-weight: 300; }
-  .student-meta { font-size: 0.82rem; color: var(--mid); font-weight: 300; margin-bottom: 0.15rem; }
-  .student-now { font-size: 0.82rem; color: var(--muted); }
-  .where-now { color: var(--accent); text-decoration: none; font-weight: 500; }
-  .where-now:hover { text-decoration: underline; }
-
-  /* ─── TEACHING ─── */
-  #teaching { background: var(--paper); }
-  .teaching-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .course-card {
-    padding: 2rem 2.2rem; border: 1px solid rgba(26, 30, 46, 0.06); border-radius: 12px;
-    background: var(--white); transition: all 0.3s;
-  }
-  .course-card:hover { box-shadow: 0 8px 30px rgba(26, 30, 46, 0.06); }
-  .course-code {
-    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 0.6rem;
-  }
-  .course-card h3 { font-family: 'Libre Baskerville', serif; font-size: 1.15rem; margin-bottom: 0.8rem; line-height: 1.35; }
-  .course-card p { color: var(--mid); font-size: 0.9rem; line-height: 1.7; font-weight: 300; }
-  .course-tag {
-    display: inline-block; margin-top: 1rem; padding: 0.3rem 0.8rem;
-    font-size: 0.75rem; font-weight: 500; border-radius: 100px;
-  }
-  .course-tag.undergrad { background: var(--accent-bg); color: var(--accent); }
-  .course-tag.grad { background: var(--green-bg); color: var(--green); }
-  .course-tag.workshop { background: var(--teal-bg); color: var(--teal); }
-
-  /* ─── CONTACT ─── */
-  #contact { background: var(--white); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  .contact-info { display: flex; flex-direction: column; gap: 1.6rem; }
-  .contact-item { display: flex; gap: 1rem; align-items: start; }
-  .contact-icon {
-    width: 40px; height: 40px; border-radius: 10px; background: var(--accent-bg);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent);
-  }
-  .contact-detail h4 {
-    font-size: 0.82rem; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.3rem;
-  }
-  .contact-detail p, .contact-detail a {
-    font-size: 0.95rem; color: var(--ink); text-decoration: none; line-height: 1.6;
-  }
-  .contact-detail a:hover { color: var(--accent); }
-
-  .ext-links { display: flex; flex-direction: column; gap: 0.8rem; }
-  .ext-link {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.1rem 1.4rem; background: var(--paper); border: 1px solid rgba(26, 30, 46, 0.05);
-    border-radius: 10px; text-decoration: none; color: var(--ink);
-    font-weight: 500; font-size: 0.92rem; transition: all 0.3s;
-  }
-  .ext-link:hover { transform: translateX(6px); box-shadow: 0 4px 16px rgba(26, 30, 46, 0.05); border-color: var(--accent); }
-  .ext-link-arrow { color: var(--muted); transition: all 0.3s; font-size: 1.1rem; }
-  .ext-link:hover .ext-link-arrow { color: var(--accent); transform: translateX(4px); }
-
-  /* ─── FOOTER ─── */
-  footer {
-    text-align: center; padding: 2.5rem 2rem; color: var(--muted); font-size: 0.82rem;
-    border-top: 1px solid rgba(26, 30, 46, 0.06);
-  }
-  footer .tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--mid); font-size: 0.88rem; margin-bottom: 0.5rem; }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* ─── MOBILE ─── */
-  .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; color: var(--ink); }
-  .menu-toggle svg { width: 24px; height: 24px; }
-
-  @media (max-width: 900px) {
-    html { font-size: 15px; }
-    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .hero-photo { max-width: 280px; }
-    .hero h1 { font-size: 2.4rem; }
-    .research-grid, .teaching-grid { grid-template-columns: 1fr; }
-    .lab-content, .contact-grid { grid-template-columns: 1fr; }
-    .lab-header { grid-template-columns: 1fr; }
-    .lab-header .lab-logo { width: 180px; }
-    .contact-grid { gap: 3rem; }
-    .pub-item { grid-template-columns: 1fr; gap: 0.6rem; }
-    .pub-year { font-size: 0.85rem; }
-    .menu-toggle { display: block; }
-    .nav-links {
-      display: none; position: absolute; top: 64px; left: 0; right: 0;
-      background: var(--paper); flex-direction: column; padding: 1.5rem 2rem;
-      gap: 1.2rem; border-bottom: 1px solid rgba(26, 30, 46, 0.08);
-      box-shadow: 0 12px 30px rgba(26, 30, 46, 0.08);
-    }
-    .nav-links.open { display: flex; }
-  }
-  @media (max-width: 600px) {
-    .hero h1 { font-size: 2rem; }
-    .section-title { font-size: 1.7rem; }
-    section { padding: 4rem 1.2rem; }
-    .hero { padding: 5rem 1.2rem 3rem; }
-    .members-grid, .students-split { grid-template-columns: 1fr; }
-  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<!-- ─── NAVIGATION ─── -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#home" class="nav-name">DHR</a>
-    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+    <a href="#home" class="brand">Dan Hiaeshutter<span>-</span>Rice</a>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
     </button>
     <ul class="nav-links">
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#lab">ASPECT Lab</a></li>
-      <li><a href="#members">Students</a></li>
+      <li><a href="#students">Students</a></li>
       <li><a href="#teaching">Teaching</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="hiaeshutter-rice_CV.pdf" class="btn btn-outline" style="padding:0.5rem 1.2rem;border-radius:100px;" target="_blank">Download CV</a></li>
+      <li><a href="hiaeshutter-rice_CV.pdf" class="nav-cv" target="_blank">CV ↓</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ─── HERO ─── -->
+<!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-label">Michigan State University</div>
-      <h1>Dan Hiaeshutter&#8209;Rice, Ph.D.</h1>
-      <p class="hero-desc">
-        Assistant Professor of Advertising + Public Relations, studying how platform affordances, social identity, and computational methods reshape political communication and the information ecosystem.
-      </p>
-      <div class="hero-links">
-        <a href="#research" class="btn btn-primary">
-          View Research
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="pill"><span class="dot"></span>Michigan State University</span>
+      <h1>Dan <em>Hiaeshutter-Rice</em></h1>
+      <p class="hero-role">Associate Professor of Advertising + Public Relations</p>
+      <p class="hero-desc">I study how platform affordances, social identity, and computational methods reshape political communication and the information ecosystem.</p>
+      <div class="cta">
+        <a href="#research" class="btn btn-primary">Explore research
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
         </a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
       </div>
     </div>
-    <div class="hero-photo">
-      <div class="photo-frame">
-        <img src="headshot.png" alt="Dan Hiaeshutter-Rice headshot">
-      </div>
+    <div class="hero-photo reveal">
+      <img src="headshot.png" alt="Dan Hiaeshutter-Rice">
     </div>
   </div>
 </section>
 
-<!-- ─── RESEARCH AREAS ─── -->
-<section id="research">
-  <div class="container">
-    <div class="section-label">Research Agenda</div>
-    <h2 class="section-title">Areas of Focus</h2>
-    <p class="section-subtitle">My work sits at the intersection of political communication, platform studies, and computational social science.</p>
-
-    <div class="research-grid">
-      <div class="research-card reveal">
-        <div class="research-icon">⬡</div>
+<!-- RESEARCH -->
+<section class="block" id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">Research Agenda</div>
+      <h2 class="sec-title">Areas of focus</h2>
+      <p class="sec-lede">My work sits at the intersection of political communication, platform studies, and computational social science.</p>
+    </div>
+    <div class="rgrid">
+      <div class="rcard reveal">
+        <div class="ric"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="5.5" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.2 10.9l7.6-4.3M8.2 13.1l7.6 4.3"/></svg></div>
         <h3>Platforms &amp; Political Communication</h3>
-        <p>Understanding how the technical features and affordances of communication platforms shape the content and strategies of political campaigns. Central to this work is the Identity Driven Information Ecosystem (IDIE) framework.</p>
+        <p>How the technical features and affordances of communication platforms shape the content and strategies of political campaigns. Central to this work is the Identity Driven Information Ecosystem (IDIE) framework.</p>
       </div>
-      <div class="research-card reveal">
-        <div class="research-icon">◈</div>
+      <div class="rcard reveal">
+        <div class="ric"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18M4 21h16"/><path d="M6.5 7l-2.3 5a2.7 2.7 0 0 0 5.4 0L7.3 7zM17.5 7l-2.3 5a2.7 2.7 0 0 0 5.4 0L18.3 7z"/><path d="M6.5 6.4l11-1.6"/></svg></div>
         <h3>Systematic Biases in Information</h3>
-        <p>Examining how algorithms and user behavior influence content exposure and engagement, including how news engagement on Facebook skews ideologically and how negativity drives public interaction with advocacy content.</p>
+        <p>How algorithms and user behavior influence content exposure and engagement, including how news engagement on Facebook skews ideologically and how negativity drives public interaction with advocacy content.</p>
       </div>
-      <div class="research-card reveal">
-        <div class="research-icon">◉</div>
+      <div class="rcard reveal">
+        <div class="ric"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg></div>
         <h3>Identity &amp; Political Expression</h3>
-        <p>Studying how political identity manifests through consumer choices and cultural signals — from music preferences and podcast selection to television viewing and visual imagery as reflections of partisan identity.</p>
+        <p>How political identity manifests through consumer choices and cultural signals — from music preferences and podcast selection to television viewing and visual imagery as reflections of partisan identity.</p>
       </div>
-      <div class="research-card reveal">
-        <div class="research-icon">◎</div>
+      <div class="rcard reveal">
+        <div class="ric"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg></div>
         <h3>Health &amp; Science Communication</h3>
-        <p>Investigating digital wellness content, science influencer polarization, environmental messaging effectiveness, and how social identity and norms shape health-related behaviors including sports gambling engagement.</p>
+        <p>Digital wellness content, science-influencer polarization, environmental messaging effectiveness, and how social identity and norms shape health-related behaviors including sports-gambling engagement.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── PUBLICATIONS ─── -->
-<section id="publications">
-  <div class="container">
-    <div class="section-label">Selected Work</div>
-    <h2 class="section-title">Publications</h2>
-    <p class="section-subtitle">Peer-reviewed journal articles. Full list and citation metrics available on <a href="https://scholar.google.com/citations?user=fPlinyoAAAAJ&hl=en&oi=ao" target="_blank" style="color:var(--accent);text-decoration:underline;">Google Scholar</a>.</p>
-
+<!-- PUBLICATIONS -->
+<section class="block" id="publications">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">Selected Work</div>
+      <h2 class="sec-title">Publications</h2>
+      <p class="sec-lede">Peer-reviewed journal articles. Full list and citation metrics on <a href="https://scholar.google.com/citations?user=fPlinyoAAAAJ&hl=en&oi=ao" target="_blank" style="color:var(--wine);text-decoration:none;border-bottom:1px solid rgba(138,47,47,.4)">Google Scholar</a>.</p>
+    </div>
     <div class="pub-filters">
-      <button class="pub-filter active" onclick="filterPubs('all', this)">All</button>
-      <button class="pub-filter" onclick="filterPubs('platforms', this)">Platforms</button>
-      <button class="pub-filter" onclick="filterPubs('bias', this)">Information Bias</button>
-      <button class="pub-filter" onclick="filterPubs('identity', this)">Identity</button>
-      <button class="pub-filter" onclick="filterPubs('health', this)">Health &amp; Science</button>
+      <button class="pub-filter active" onclick="filterPubs('all',this)">All</button>
+      <button class="pub-filter" onclick="filterPubs('platforms',this)">Platforms</button>
+      <button class="pub-filter" onclick="filterPubs('bias',this)">Information Bias</button>
+      <button class="pub-filter" onclick="filterPubs('identity',this)">Identity</button>
+      <button class="pub-filter" onclick="filterPubs('health',this)">Health &amp; Science</button>
     </div>
-
     <div class="pub-list">
-
-      <div class="pub-item reveal" data-cat="bias">
-        <div class="pub-year">2026</div>
-        <div class="pub-info">
-          <h4>Are Policymakers Persuaded in Parallel?: Policymakers, Evidence, and Motivated Reasoning</h4>
-          <div class="authors">Bergan, D. E., Amakoh, K., Carnahan, D., Hiaeshutter-Rice, D., &amp; Teinowitz, L.</div>
-          <div class="venue">American Politics Research, 54(1), 80–90</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="platforms">
-        <div class="pub-year">2025</div>
-        <div class="pub-info">
-          <h4>Embracing Dialectic Intersubjectivity: Coordination of Differential Perspectives in Content Analysis With LLM Persona Simulation</h4>
-          <div class="authors">Kang, T., Thorson, K., Peng, T. Q., Hiaeshutter-Rice, D., Lee, S., &amp; Soroka, S.</div>
-          <div class="venue">Social Science Computer Review</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="health">
-        <div class="pub-year">2024</div>
-        <div class="pub-info">
-          <h4>Climate Change Advocacy and Engagement on Social Media</h4>
-          <div class="authors">Hart, P. S., Feldman, L., Choi, S., Chinn, S., &amp; Hiaeshutter-Rice, D.</div>
-          <div class="venue">Science Communication</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="bias">
-        <div class="pub-year">2024</div>
-        <div class="pub-info">
-          <h4>Go Negative for Clicks: Negative Sentiment in Environmental Advocacy Emails Is Associated with Increased Public Engagement</h4>
-          <div class="authors">Hart, P. S., Soroka, S. N., &amp; Hiaeshutter-Rice, D.</div>
-          <div class="venue">Environmental Communication, 1–7</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="health">
-        <div class="pub-year">2024</div>
-        <div class="pub-info">
-          <h4>Testing How Militaristic and Xenophobic Language Affects Engagement with Facebook Posts About Invasive Species</h4>
-          <div class="authors">Chinn, S., Hiaeshutter-Rice, D., Hart, P. S., &amp; Larson, B. M.</div>
-          <div class="venue">Environmental Communication, 18(3), 351–357</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="health">
-        <div class="pub-year">2024</div>
-        <div class="pub-info">
-          <h4>How Science Influencers Polarize Supportive and Skeptical Communities Around Politicized Science: A Cross-Platform and Over-Time Comparison</h4>
-          <div class="authors">Chinn, S., Hiaeshutter-Rice, D., &amp; Chen, K.</div>
-          <div class="venue">Political Communication, 41(4), 627–648</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="platforms">
-        <div class="pub-year">2024</div>
-        <div class="pub-info">
-          <h4>Identity Driven Information Ecosystems</h4>
-          <div class="authors">Hiaeshutter-Rice, D., Madrigal, G., Ploger, G., Carr, S., Carbone, M., Battocchio, A. F., &amp; Soroka, S.</div>
-          <div class="venue">Communication Theory, 34(2), 82–91</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="platforms">
-        <div class="pub-year">2023</div>
-        <div class="pub-info">
-          <h4>Who Will Tell the Stories of Health Inequities? Platform Challenges (and Opportunities) in Local Civic Information Infrastructure</h4>
-          <div class="authors">Battocchio, A. F., Thorson, K., Hiaeshutter-Rice, D., Smith, M., Chen, Y., Edgerly, S., et al.</div>
-          <div class="venue">The Annals of the American Academy of Political and Social Science, 707(1), 144–171</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="identity">
-        <div class="pub-year">2023</div>
-        <div class="pub-info">
-          <h4>Cued by Culture: Political Imagery and Partisan Evaluations</h4>
-          <div class="authors">Hiaeshutter-Rice, D., Neuner, F., &amp; Soroka, S.</div>
-          <div class="venue">Political Behavior, 1–19</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="health">
-        <div class="pub-year">2023</div>
-        <div class="pub-info">
-          <h4>Mapping Digital Wellness Content: Implications for Health, Science, and Political Communication Research</h4>
-          <div class="authors">Chinn, S., Hasell, A., &amp; Hiaeshutter-Rice, D.</div>
-          <div class="venue">Journal of Quantitative Description: Digital Media, 3, 1–56</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="platforms">
-        <div class="pub-year">2022</div>
-        <div class="pub-info">
-          <h4>The Language of Extremism on Social Media: An Examination of Posts, Comments, and Themes on Reddit</h4>
-          <div class="authors">Hiaeshutter-Rice, D. &amp; Hawkins, I.</div>
-          <div class="venue">Frontiers in Political Science, 4, 1–16</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="identity">
-        <div class="pub-year">2022</div>
-        <div class="pub-info">
-          <h4>Political Sorting in US Entertainment Media</h4>
-          <div class="authors">Fioroni, S. B., Lotz, A. D., Soroka, S., &amp; Hiaeshutter-Rice, D.</div>
-          <div class="venue">Popular Communication, 20(2), 117–132</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="bias">
-        <div class="pub-year">2021</div>
-        <div class="pub-info">
-          <h4>Understanding Audience Engagement with Mainstream and Alternative News Posts on Facebook</h4>
-          <div class="authors">Hiaeshutter-Rice, D. &amp; Weeks, B. E.</div>
-          <div class="venue">Digital Journalism, 1–30</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="platforms">
-        <div class="pub-year">2021</div>
-        <div class="pub-info">
-          <h4>Platform Effects on Alternative Influencer Content: Understanding How Audiences and Channels Shape Misinformation Online</h4>
-          <div class="authors">Hiaeshutter-Rice, D., Chinn, S., &amp; Chen, K.</div>
-          <div class="venue">Frontiers in Political Science, 3, 53</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="bias">
-        <div class="pub-year">2021</div>
-        <div class="pub-info">
-          <h4>Freedom of the Press and Public Responsiveness</h4>
-          <div class="authors">Hiaeshutter-Rice, D., Soroka, S., &amp; Wlezien, C.</div>
-          <div class="venue">Perspectives on Politics, 3, 1–13</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="platforms">
-        <div class="pub-year">2019</div>
-        <div class="pub-info">
-          <h4>Civic Laboratories: Youth Political Expression in Anonymous, Ephemeral, Geo-Bounded Social Media</h4>
-          <div class="authors">Lane, D. S., Das, V., &amp; Hiaeshutter-Rice, D.</div>
-          <div class="venue">Information, Communication &amp; Society, 1–16</div>
-        </div>
-      </div>
-
-      <div class="pub-item reveal" data-cat="bias">
-        <div class="pub-year">2018</div>
-        <div class="pub-info">
-          <h4>Negativity and Positivity Biases in Economic News Coverage: Traditional Versus Social Media</h4>
-          <div class="authors">Soroka, S., Daku, M., Hiaeshutter-Rice, D., Guggenheim, L., &amp; Pasek, J.</div>
-          <div class="venue">Communication Research, 45(7), 1078–1098</div>
-        </div>
-      </div>
-
+      <div class="pub-item reveal" data-cat="bias"><div class="pub-year">2026</div><div><div class="pub-title">Are Policymakers Persuaded in Parallel?: Policymakers, Evidence, and Motivated Reasoning</div><div class="pub-authors">Bergan, D. E., Amakoh, K., Carnahan, D., <b>Hiaeshutter-Rice, D.</b>, &amp; Teinowitz, L.</div><div class="pub-venue">American Politics Research, 54(1), 80–90</div></div></div>
+      <div class="pub-item reveal" data-cat="platforms"><div class="pub-year">2025</div><div><div class="pub-title">Embracing Dialectic Intersubjectivity: Coordination of Differential Perspectives in Content Analysis With LLM Persona Simulation</div><div class="pub-authors">Kang, T., Thorson, K., Peng, T. Q., <b>Hiaeshutter-Rice, D.</b>, Lee, S., &amp; Soroka, S.</div><div class="pub-venue">Social Science Computer Review</div></div></div>
+      <div class="pub-item reveal" data-cat="health"><div class="pub-year">2024</div><div><div class="pub-title">Climate Change Advocacy and Engagement on Social Media</div><div class="pub-authors">Hart, P. S., Feldman, L., Choi, S., Chinn, S., &amp; <b>Hiaeshutter-Rice, D.</b></div><div class="pub-venue">Science Communication</div></div></div>
+      <div class="pub-item reveal" data-cat="bias"><div class="pub-year">2024</div><div><div class="pub-title">Go Negative for Clicks: Negative Sentiment in Environmental Advocacy Emails Is Associated with Increased Public Engagement</div><div class="pub-authors">Hart, P. S., Soroka, S. N., &amp; <b>Hiaeshutter-Rice, D.</b></div><div class="pub-venue">Environmental Communication, 1–7</div></div></div>
+      <div class="pub-item reveal" data-cat="health"><div class="pub-year">2024</div><div><div class="pub-title">Testing How Militaristic and Xenophobic Language Affects Engagement with Facebook Posts About Invasive Species</div><div class="pub-authors">Chinn, S., <b>Hiaeshutter-Rice, D.</b>, Hart, P. S., &amp; Larson, B. M.</div><div class="pub-venue">Environmental Communication, 18(3), 351–357</div></div></div>
+      <div class="pub-item reveal" data-cat="health"><div class="pub-year">2024</div><div><div class="pub-title">How Science Influencers Polarize Supportive and Skeptical Communities Around Politicized Science: A Cross-Platform and Over-Time Comparison</div><div class="pub-authors">Chinn, S., <b>Hiaeshutter-Rice, D.</b>, &amp; Chen, K.</div><div class="pub-venue">Political Communication, 41(4), 627–648</div></div></div>
+      <div class="pub-item reveal" data-cat="platforms"><div class="pub-year">2024</div><div><div class="pub-title">Identity Driven Information Ecosystems</div><div class="pub-authors"><b>Hiaeshutter-Rice, D.</b>, Madrigal, G., Ploger, G., Carr, S., Carbone, M., Battocchio, A. F., &amp; Soroka, S.</div><div class="pub-venue">Communication Theory, 34(2), 82–91</div></div></div>
+      <div class="pub-item reveal" data-cat="platforms"><div class="pub-year">2023</div><div><div class="pub-title">Who Will Tell the Stories of Health Inequities? Platform Challenges (and Opportunities) in Local Civic Information Infrastructure</div><div class="pub-authors">Battocchio, A. F., Thorson, K., <b>Hiaeshutter-Rice, D.</b>, Smith, M., Chen, Y., Edgerly, S., et al.</div><div class="pub-venue">The Annals of the American Academy of Political and Social Science, 707(1), 144–171</div></div></div>
+      <div class="pub-item reveal" data-cat="identity"><div class="pub-year">2023</div><div><div class="pub-title">Cued by Culture: Political Imagery and Partisan Evaluations</div><div class="pub-authors"><b>Hiaeshutter-Rice, D.</b>, Neuner, F., &amp; Soroka, S.</div><div class="pub-venue">Political Behavior, 1–19</div></div></div>
+      <div class="pub-item reveal" data-cat="health"><div class="pub-year">2023</div><div><div class="pub-title">Mapping Digital Wellness Content: Implications for Health, Science, and Political Communication Research</div><div class="pub-authors">Chinn, S., Hasell, A., &amp; <b>Hiaeshutter-Rice, D.</b></div><div class="pub-venue">Journal of Quantitative Description: Digital Media, 3, 1–56</div></div></div>
+      <div class="pub-item reveal" data-cat="platforms"><div class="pub-year">2022</div><div><div class="pub-title">The Language of Extremism on Social Media: An Examination of Posts, Comments, and Themes on Reddit</div><div class="pub-authors"><b>Hiaeshutter-Rice, D.</b> &amp; Hawkins, I.</div><div class="pub-venue">Frontiers in Political Science, 4, 1–16</div></div></div>
+      <div class="pub-item reveal" data-cat="identity"><div class="pub-year">2022</div><div><div class="pub-title">Political Sorting in US Entertainment Media</div><div class="pub-authors">Fioroni, S. B., Lotz, A. D., Soroka, S., &amp; <b>Hiaeshutter-Rice, D.</b></div><div class="pub-venue">Popular Communication, 20(2), 117–132</div></div></div>
+      <div class="pub-item reveal" data-cat="bias"><div class="pub-year">2021</div><div><div class="pub-title">Understanding Audience Engagement with Mainstream and Alternative News Posts on Facebook</div><div class="pub-authors"><b>Hiaeshutter-Rice, D.</b> &amp; Weeks, B. E.</div><div class="pub-venue">Digital Journalism, 1–30</div></div></div>
+      <div class="pub-item reveal" data-cat="platforms"><div class="pub-year">2021</div><div><div class="pub-title">Platform Effects on Alternative Influencer Content: Understanding How Audiences and Channels Shape Misinformation Online</div><div class="pub-authors"><b>Hiaeshutter-Rice, D.</b>, Chinn, S., &amp; Chen, K.</div><div class="pub-venue">Frontiers in Political Science, 3, 53</div></div></div>
+      <div class="pub-item reveal" data-cat="bias"><div class="pub-year">2021</div><div><div class="pub-title">Freedom of the Press and Public Responsiveness</div><div class="pub-authors"><b>Hiaeshutter-Rice, D.</b>, Soroka, S., &amp; Wlezien, C.</div><div class="pub-venue">Perspectives on Politics, 3, 1–13</div></div></div>
+      <div class="pub-item reveal" data-cat="platforms"><div class="pub-year">2019</div><div><div class="pub-title">Civic Laboratories: Youth Political Expression in Anonymous, Ephemeral, Geo-Bounded Social Media</div><div class="pub-authors">Lane, D. S., Das, V., &amp; <b>Hiaeshutter-Rice, D.</b></div><div class="pub-venue">Information, Communication &amp; Society, 1–16</div></div></div>
+      <div class="pub-item reveal" data-cat="bias"><div class="pub-year">2018</div><div><div class="pub-title">Negativity and Positivity Biases in Economic News Coverage: Traditional Versus Social Media</div><div class="pub-authors">Soroka, S., Daku, M., <b>Hiaeshutter-Rice, D.</b>, Guggenheim, L., &amp; Pasek, J.</div><div class="pub-venue">Communication Research, 45(7), 1078–1098</div></div></div>
     </div>
-
-    <div style="text-align: center; margin-top: 2.5rem;">
-      <a href="https://scholar.google.com/citations?user=fPlinyoAAAAJ&hl=en&oi=ao" class="btn btn-outline" target="_blank">View All on Google Scholar →</a>
-    </div>
+    <div class="pub-more"><a href="https://scholar.google.com/citations?user=fPlinyoAAAAJ&hl=en&oi=ao" class="btn btn-ghost" target="_blank">View all on Google Scholar →</a></div>
   </div>
 </section>
 
-<!-- ─── ASPECT LAB ─── -->
-<section id="lab">
-  <div class="container">
-    <div class="lab-header">
+<!-- LAB -->
+<section class="block" id="lab">
+  <div class="wrap">
+    <div class="lab-grid">
       <div>
-        <div class="section-label">Research Lab</div>
-        <h2 class="section-title">The ASPECT Lab</h2>
-        <p class="section-subtitle">Advancing research at the intersection of technology, identity, and communication.</p>
-      </div>
-      <div class="lab-logo reveal">
-        <img src="ASPECT_lab_mid.png" alt="ASPECT Lab logo">
-      </div>
-    </div>
-
-    <div class="lab-content">
-      <div class="lab-desc reveal">
-        <p>The ASPECT Lab at Michigan State University investigates how the information we encounter, engage with, and act upon is shaped by <strong>internal psychological factors</strong> and <strong>external technological structures</strong>.</p>
-        <br>
-        <p>Our work draws on computational methods, large-scale data collection, survey research, and experimental design to understand modern communication ecosystems. We are particularly interested in how <strong>social identities</strong> — political, cultural, and group affiliations — systematically influence the information environments people inhabit.</p>
-        <br>
-        <p>We are always looking for motivated graduate students. If you're interested in political communication, computational methods, or platform studies, <a href="#contact">get in touch</a>.</p>
-        <br>
-        <p><a href="https://aspect.dhrice.org" style="color:var(--accent);font-weight:500;text-decoration:underline;">Visit the ASPECT Lab website →</a></p>
-      </div>
-      <div class="lab-right reveal">
-        <div class="lab-acronym">
-          <div class="acronym-item">
-            <span class="acronym-letter">A</span>
-            <span class="acronym-word">Affordances</span>
-          </div>
-          <div class="acronym-item">
-            <span class="acronym-letter">S</span>
-            <span class="acronym-word">Social Identity</span>
-          </div>
-          <div class="acronym-item">
-            <span class="acronym-letter">P</span>
-            <span class="acronym-word">Political Communication</span>
-          </div>
-          <div class="acronym-item">
-            <span class="acronym-letter">E</span>
-            <span class="acronym-word">E-Health</span>
-          </div>
-          <div class="acronym-item">
-            <span class="acronym-letter">C</span>
-            <span class="acronym-word">Communication</span>
-          </div>
-          <div class="acronym-item">
-            <span class="acronym-letter">T</span>
-            <span class="acronym-word">Technologies</span>
-          </div>
+        <a href="https://aspect.dhrice.org" class="lab-logo-link reveal" aria-label="Visit the ASPECT Lab website"><img src="ASPECT_lab_mid.png" alt="ASPECT Lab logo" class="lab-logo"></a>
+        <div class="kick">Research Lab</div>
+        <h2 class="lab-title">The ASPECT Lab</h2>
+        <div class="lab-copy reveal">
+          <p>The ASPECT Lab at Michigan State University investigates how the information we encounter, engage with, and act upon is shaped by <strong>internal psychological factors</strong> and <strong>external technological structures</strong>.</p>
+          <p>We draw on computational methods, large-scale data collection, survey research, and experimental design to understand modern communication ecosystems, with a focus on how <strong>social identities</strong> systematically shape the information environments people inhabit.</p>
+          <p>We are always looking for motivated graduate students in political communication, computational methods, or platform studies. <a href="#contact">Get in touch.</a></p>
         </div>
+        <a href="https://aspect.dhrice.org" class="lab-visit">Visit the ASPECT Lab site <span class="arrow">→</span></a>
+      </div>
+      <div class="acr reveal">
+        <div class="acr-item"><span class="acr-l">A</span><span class="acr-w">Affordances</span></div>
+        <div class="acr-item"><span class="acr-l">S</span><span class="acr-w">Social Identity</span></div>
+        <div class="acr-item"><span class="acr-l">P</span><span class="acr-w">Political Communication</span></div>
+        <div class="acr-item"><span class="acr-l">E</span><span class="acr-w">E-Health</span></div>
+        <div class="acr-item"><span class="acr-l">C</span><span class="acr-w">Communication</span></div>
+        <div class="acr-item"><span class="acr-l">T</span><span class="acr-w">Technologies</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── STUDENTS ─── -->
-<section id="members">
-  <div class="container">
-    <div class="section-label">Students</div>
-    <h2 class="section-title">Ph.D. Students</h2>
-    <p class="section-subtitle">Current and former doctoral students.</p>
-
-    <div class="students-split">
+<!-- STUDENTS -->
+<section class="block" id="students">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">Mentorship</div>
+      <h2 class="sec-title">Doctoral students</h2>
+      <p class="sec-lede">Current and former Ph.D. students I advise and have advised.</p>
+    </div>
+    <div class="stu-split">
       <div>
-        <div class="students-group-label">Current</div>
-        <div class="student-list">
-
-          <div class="student-item reveal">
-            <div class="student-photo">
-              <div class="student-photo-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <div class="student-info">
-              <div class="student-name">Layla Chen</div>
-              <div class="student-now">Ph.D. student, Department of Advertising + Public Relations</div>
-            </div>
-          </div>
-
-          <div class="student-item reveal">
-            <div class="student-photo">
-              <div class="student-photo-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <div class="student-info">
-              <div class="student-name">Taewoo Kang</div>
-              <div class="student-now">Incoming Assistant Professor, Yonsei University, South Korea</div>
-            </div>
-          </div>
-
-          <div class="student-item reveal">
-            <div class="student-photo">
-              <div class="student-photo-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <div class="student-info">
-              <div class="student-name">Nan Zhang</div>
-              <div class="student-now">Incoming Assistant Professor, Indiana University</div>
-            </div>
-          </div>
-
+        <div class="stu-group-label">Current</div>
+        <div class="stu-list">
+          <div class="stu-item reveal"><div class="avatar">LC</div><div><div class="stu-name">Layla Chen</div><div class="stu-meta">Ph.D. student, Advertising + Public Relations</div></div></div>
+          <div class="stu-item reveal"><div class="avatar">TK</div><div><div class="stu-name">Taewoo Kang</div><div class="stu-meta">Placement: Incoming Assistant Professor, Yonsei University</div></div></div>
+          <div class="stu-item reveal"><div class="avatar">NZ</div><div><div class="stu-name">Nan Zhang</div><div class="stu-meta">Placement: Incoming Assistant Professor, Indiana University</div></div></div>
         </div>
       </div>
-
       <div>
-        <div class="students-group-label">Former</div>
-        <div class="student-list">
-
-          <div class="student-item reveal">
-            <div class="student-photo">
-              <div class="student-photo-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <div class="student-info">
-              <a href="https://afbat.co/" target="_blank" class="student-name student-link">Ava Francesca Battocchio</a>
-              <div class="student-now">Northwestern University</div>
-            </div>
-          </div>
-
-          <div class="student-item reveal">
-            <div class="student-photo">
-              <div class="student-photo-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <div class="student-info">
-              <a href="https://suhwooahn.github.io/" target="_blank" class="student-name student-link">Suhwoo Ahn</a>
-              <div class="student-now">Kookmin University, South Korea</div>
-            </div>
-          </div>
-
-          <div class="student-item reveal">
-            <div class="student-photo">
-              <div class="student-photo-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <div class="student-info">
-              <a href="https://www.atilim.edu.tr/en/pr/page/2132/academic-staff" target="_blank" class="student-name student-link">Sevgi Baykaldi</a>
-              <div class="student-now">Atılım University, Turkey</div>
-            </div>
-          </div>
-
+        <div class="stu-group-label">Former</div>
+        <div class="stu-list">
+          <div class="stu-item reveal"><div class="avatar">AB</div><div><a href="https://afbat.co/" target="_blank" class="stu-name">Ava Francesca Battocchio</a><div class="stu-meta">Northwestern University</div></div></div>
+          <div class="stu-item reveal"><div class="avatar">SA</div><div><a href="https://suhwooahn.github.io/" target="_blank" class="stu-name">Suhwoo Ahn</a><div class="stu-meta">Kookmin University, South Korea</div></div></div>
+          <div class="stu-item reveal"><div class="avatar">SB</div><div><a href="https://www.atilim.edu.tr/en/pr/page/2132/academic-staff" target="_blank" class="stu-name">Sevgi Baykaldi</a><div class="stu-meta">Atılım University, Turkey</div></div></div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ─── TEACHING ─── -->
-<section id="teaching">
-  <div class="container">
-    <div class="section-label">Teaching</div>
-    <h2 class="section-title">Courses</h2>
-    <p class="section-subtitle">Courses focused on digital advertising, analytics, computational methods, and data science.</p>
-
-    <div class="teaching-grid">
-      <div class="course-card reveal">
-        <div class="course-code">ADV 362</div>
-        <h3>Digital Advertising Analytics</h3>
-        <p>A hands-on course covering campaign management, digital metrics, platform analytics, and data-driven advertising strategy. Students work with real and simulated datasets to build practical analytical skills.</p>
-        <span class="course-tag undergrad">Undergraduate</span>
-      </div>
-      <div class="course-card reveal">
-        <div class="course-code">ADV 492</div>
-        <h3>Advanced Digital Analytics</h3>
-        <p>An advanced course building on foundational analytics concepts, covering sophisticated measurement techniques, attribution modeling, and applied data analysis for digital advertising campaigns.</p>
-        <span class="course-tag undergrad">Undergraduate</span>
-      </div>
-      <div class="course-card reveal">
-        <div class="course-code">CAS 892</div>
-        <h3>Introduction to Python</h3>
-        <p>A graduate-level introduction to Python programming for communication researchers, covering data collection, manipulation, and analysis techniques relevant to computational social science.</p>
-        <span class="course-tag grad">Graduate</span>
-      </div>
-      <div class="course-card reveal">
-        <div class="course-code">CAS</div>
-        <h3>Summer Data Lab</h3>
-        <p>An intensive summer workshop providing hands-on training in data science methods and computational tools for graduate students and faculty across the College of Communication Arts and Sciences.</p>
-        <span class="course-tag workshop">Workshop</span>
-      </div>
+<!-- TEACHING -->
+<section class="block" id="teaching">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">Teaching</div>
+      <h2 class="sec-title">Courses</h2>
+      <p class="sec-lede">Digital advertising, analytics, computational methods, and data science.</p>
+    </div>
+    <div class="course-grid">
+      <div class="course reveal"><div class="course-code">ADV 362</div><h3>Digital Advertising Analytics</h3><p>A hands-on course covering campaign management, digital metrics, platform analytics, and data-driven advertising strategy, using real and simulated datasets.</p><span class="course-tag t-ug">Undergraduate</span></div>
+      <div class="course reveal"><div class="course-code">ADV 492</div><h3>Advanced Digital Analytics</h3><p>An advanced course covering sophisticated measurement techniques, attribution modeling, and applied data analysis for digital advertising campaigns.</p><span class="course-tag t-ug">Undergraduate</span></div>
+      <div class="course reveal"><div class="course-code">CAS 892</div><h3>Introduction to Python</h3><p>A graduate-level introduction to Python for communication researchers — data collection, manipulation, and analysis for computational social science.</p><span class="course-tag t-grad">Graduate</span></div>
+      <div class="course reveal"><div class="course-code">Summer Workshop</div><h3>Summer Data Lab</h3><p>An intensive workshop providing hands-on training in data science methods and computational tools for graduate students and faculty across the College.</p><span class="course-tag t-ws">Workshop</span></div>
     </div>
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
+<!-- RECENT -->
+<section class="block" id="recent">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">Recent</div>
+      <h2 class="sec-title">News &amp; talks</h2>
+    </div>
+    <div class="news-grid">
+      <div class="news reveal"><div class="news-date">October 2025</div><h3>Invited Talk at UCLA</h3><p>Presented “Enemies of the (E)state: News, Attacks, and a Free Press” at UCLA’s Political Communication &amp; Behavior Lab.</p></div>
+      <div class="news reveal"><div class="news-date">June 2025</div><h3>Paper at AAPOR</h3><p>Fioroni, Hiaeshutter-Rice, and Ploger presented work on rethinking the impact of “bad press” at the AAPOR annual conference.</p></div>
+      <div class="news reveal"><div class="news-date">April 2025</div><h3>Paper at MPSA</h3><p>New work on news, press attacks, and press freedom presented at the Midwest Political Science Association conference in Chicago.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
-  <div class="container">
-    <div class="section-label">Connect</div>
-    <h2 class="section-title">Get in Touch</h2>
-    <p class="section-subtitle">I welcome inquiries about research collaborations, prospective graduate students, and speaking opportunities.</p>
-
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div class="contact-detail">
-            <h4>Office</h4>
-            <p>404 S. Wilson Rd., Room 309<br>Department of Advertising + Public Relations<br>Michigan State University<br>East Lansing, MI 48824</p>
-          </div>
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <div class="kick">Connect</div>
+        <h2>Get in touch</h2>
+        <p class="lede2">I welcome inquiries about research collaborations, prospective graduate students, and speaking opportunities.</p>
+        <div class="contact-row">
+          <div class="contact-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h4>Office</h4><p>404 S. Wilson Rd., Room 309<br>Department of Advertising + Public Relations<br>Michigan State University · East Lansing, MI 48824</p></div>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </div>
-          <div class="contact-detail">
-            <h4>Email</h4>
-            <a href="mailto:dhrice@msu.edu">dhrice@msu.edu</a>
-          </div>
+        <div class="contact-row">
+          <div class="contact-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+          <div><h4>Email</h4><a href="mailto:dhrice@msu.edu">dhrice@msu.edu</a></div>
         </div>
       </div>
-
-      <div class="ext-links reveal">
-        <a href="https://scholar.google.com/citations?user=fPlinyoAAAAJ&hl=en&oi=ao" class="ext-link" target="_blank">
-          <span>Google Scholar</span>
-          <span class="ext-link-arrow">→</span>
-        </a>
-        <a href="https://github.com/dhrice" class="ext-link" target="_blank">
-          <span>GitHub</span>
-          <span class="ext-link-arrow">→</span>
-        </a>
-        <a href="https://comartsci.msu.edu/our-people/dan-hiaeshutter-rice" class="ext-link" target="_blank">
-          <span>MSU Faculty Profile</span>
-          <span class="ext-link-arrow">→</span>
-        </a>
-        <a href="https://sites.lsa.umich.edu/polcom-lab/" class="ext-link" target="_blank">
-          <span>Political Communication Working Group</span>
-          <span class="ext-link-arrow">→</span>
-        </a>
-        <a href="hiaeshutter-rice_CV.pdf" class="ext-link" target="_blank">
-          <span>Download CV (PDF)</span>
-          <span class="ext-link-arrow">↓</span>
-        </a>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?user=fPlinyoAAAAJ&hl=en&oi=ao" class="link" target="_blank"><span>Google Scholar</span><span class="arrow">→</span></a>
+        <a href="https://github.com/dhrice" class="link" target="_blank"><span>GitHub</span><span class="arrow">→</span></a>
+        <a href="https://comartsci.msu.edu/our-people/dan-hiaeshutter-rice" class="link" target="_blank"><span>MSU Faculty Profile</span><span class="arrow">→</span></a>
+        <a href="https://sites.lsa.umich.edu/polcom-lab/" class="link" target="_blank"><span>Political Communication Working Group</span><span class="arrow">→</span></a>
+        <a href="hiaeshutter-rice_CV.pdf" class="link" target="_blank"><span>Download CV (PDF)</span><span class="arrow">↓</span></a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="tagline">The AE is silent.</div>
-  <p>© 2026 Dan Hiaeshutter-Rice · Michigan State University</p>
+  <div class="fnote">The AE is silent.</div>
+  <div class="fmeta">© 2026 Dan Hiaeshutter-Rice · Michigan State University</div>
 </footer>
 
 <script>
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  function filterPubs(cat, btn) {
-    document.querySelectorAll('.pub-filter').forEach(b => b.classList.remove('active'));
+  const nav=document.getElementById('navbar');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('open')));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  function filterPubs(cat,btn){
+    document.querySelectorAll('.pub-filter').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('.pub-item').forEach(item => {
-      if (cat === 'all' || item.dataset.cat === cat) {
-        item.style.display = 'grid';
-        item.style.animation = 'fadeUp 0.4s ease forwards';
-      } else {
-        item.style.display = 'none';
-      }
-    });
+    document.querySelectorAll('.pub-item').forEach(i=>{i.style.display=(cat==='all'||i.dataset.cat===cat)?'grid':'none'});
   }
-
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => { document.querySelector('.nav-links').classList.remove('open'); });
-  });
 </script>
-
 </body>
 </html>
