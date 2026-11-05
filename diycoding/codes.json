@@ -1,0 +1,50 @@
+{
+  "_instructions": "Edit this list as the codebook changes. Each code needs a unique key (letters, numbers, underscores; it becomes the CSV column name), a short label shown on the toggle, and a definition shown under it. Do not rename a key after coding has started, or the old answers will export under the old column. Codes 1 to 9 get number-key shortcuts in the order listed.",
+  "codes": [
+    {
+      "key": "tutorial_guidance",
+      "label": "Tutorial / how-to",
+      "definition": "Post teaches or asks how to self-administer: mapping, placement, dosing, technique, beginner guides, cost of getting started."
+    },
+    {
+      "key": "seeks_advice",
+      "label": "Seeks advice",
+      "definition": "Poster asks peers for guidance about a procedure or their appearance (help, advice, what should I do)."
+    },
+    {
+      "key": "bodily_product_risk",
+      "label": "Bodily or product risk",
+      "definition": "Discusses side effects, reactions, something going wrong, safety, or whether a product is safe to use."
+    },
+    {
+      "key": "authenticity",
+      "label": "Product authenticity",
+      "definition": "Discusses whether a product is real or counterfeit, or how to verify it (QR codes, packaging, sellers, sourcing)."
+    },
+    {
+      "key": "regulatory_supply",
+      "label": "Regulation / supply chain",
+      "definition": "Mentions FDA, customs, seizures, crackdowns, vendor changes, or other regulatory disruptions to getting products."
+    },
+    {
+      "key": "desire_identity",
+      "label": "Desire / transformation",
+      "definition": "Frames injectables as objects of desire, identity, or transformation (hauls, delivery day, finally did it, so happy)."
+    },
+    {
+      "key": "risk_justification",
+      "label": "Justifies risk",
+      "definition": "Acknowledges risk and justifies doing it anyway (cost savings, distrust of providers or FDA, did my research)."
+    },
+    {
+      "key": "research_sources",
+      "label": "Research sources",
+      "definition": "Names or weighs information sources used in self-directed research (books, videos, clinicians, studies, other users)."
+    },
+    {
+      "key": "clinician_selfid",
+      "label": "Clinician self-ID",
+      "definition": "Poster identifies as a medical professional (RN, NP, PA, MD, injector, esthetician)."
+    }
+  ]
+}
